@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动盒子</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        width: 200px;
+        height: 200px;
+        border: 1px solid #007ACC;
+        background: #18BCEE;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+</style>
+<body>
+    <div></div>
+</body>
+<script>
+    let box=document.querySelector("div");
+    box.onmousedown=function (event) {
+        event=event||window.event;
+        let X0=event.clientX;
+        let Y0=event.clientY;
+        let X2=this.offsetLeft;
+        let Y2=this.offsetTop;
+        box.onmousemove=function (event1) {
+            event=event1||window.event;
+            let X1=event.clientX;
+            let Y1=event.clientY;
+            let X=X1-X0+X2;
+            let Y=Y1-Y0+Y2;
+            this.style=`top:${Y}px;left:${X}px;`;
+            box.onmouseup=function () {
+                box.onmouseup="";
+                box.onmousemove="";
+            }
+        }
+
+
+    }
+</script>
+</html>
