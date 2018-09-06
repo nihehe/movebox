@@ -37,13 +37,12 @@
             let X=X1-X0+X2;
             let Y=Y1-Y0+Y2;
             this.style=`top:${Y}px;left:${X}px;`;
-            box.onmouseup=function () {
-                box.onmouseup="";
-                box.onmousemove="";
-            }
         }
-
-
+        box.onmouseup=function () {
+            box.onmousemove="";
+            box.onmouseup="";
+        }
     }
+
 </script>
 </html>
